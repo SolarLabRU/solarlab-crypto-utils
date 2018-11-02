@@ -1,0 +1,49 @@
+{
+    "name": "@solarlabru/solarlab-crypto-utils",
+    "version": "0.1.0",
+    "description": "",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "npm run clean && tsc",
+        "test": "mocha -r ts-node/register test/**/*.spec.ts --reporter spec",
+        "test:coverage": "nyc --no-clean mocha -r ts-node/register test/**/*.spec.ts --reporter spec",
+        "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+        "lint": "tslint --fix -c tslint.json './src/**/*.ts'",
+        "clean": "rimraf dist",
+        "prepare": "npm run build",
+        "watch": "npm-scripts-watcher",
+        "generate:docs": "rimraf docs && typedoc src --out docs --target ES6 --excludePrivate && touch docs/.nojekyll && touch docs/modules/.nojekyll"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SolarLabRU/solarlab-crypto-utils.git"
+    },
+    "keywords": [],
+    "author": "SolarLabRU <https://github.com/SolarLabRU>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/SolarLabRU/solarlab-crypto-utils/issues"
+    },
+    "homepage": "https://github.com/SolarLabRU/solarlab-crypto-utils#readme",
+    "dependencies": {
+        "@fidm/x509": "^1.2.0",
+        "bn.js": "^4.11.8",
+        "elliptic": "^6.4.1"
+    },
+    "devDependencies": {
+        "@types/chai": "^4.0.4",
+        "@types/elliptic": "^6.4.0",
+        "@types/mocha": "^2.2.48",
+        "@types/node": "^10.3.0",
+        "chai": "^4.1.2",
+        "mocha": "^4.1.0",
+        "nyc": "^12.0.1",
+        "rimraf": "^2.6.2",
+        "ts-node": "^5.0.1",
+        "tslint": "5.9.1",
+        "typedoc": "^0.11.0",
+        "types-bn": "0.0.1",
+        "typescript": "^2.5.3"
+    }
+}

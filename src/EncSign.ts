@@ -69,8 +69,8 @@ export class EncSign {
         } while (!key.verify(msgHash, sig));
 
         return {
-            r: sig.r.toString('hex'),
-            s: sig.s.toString('hex'),
+            r: sig.r.toBuffer().toString('hex'),
+            s: sig.s.toBuffer().toString('hex'),
             v: sig.recoveryParam + 27
         };
     }
